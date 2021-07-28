@@ -4,7 +4,6 @@
         <TargetFramework>netstandard2.1</TargetFramework>
         <PackageId>diegodalben.extensions</PackageId>
         <Version>1.0.0</Version>
-        <RepositoryUrl>https://github.com/diegodalben/publish_nuget_gallery_poc</RepositoryUrl>
     </PropertyGroup>
 
 </Project>

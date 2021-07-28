@@ -1,0 +1,28 @@
+name: Pack and Publish to Github Packages
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.x
+        
+    - name: Pack All Projects
+      run: dotnet pack ./PublishNugetGalery_PoC.sln \
+            --output packages \
+            --configuration Release
+    
+    - name: Push to Nuget Gallery
+      run: dotnet nuget push packages/*.nupkg \
+            --api-key ${{ secrets.GITHUB_TOKEN }} \
+            --source https://github.com/diegodalben/publish_nuget_gallery_poc/packages

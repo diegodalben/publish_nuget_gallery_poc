@@ -19,9 +19,6 @@ jobs:
         
     - name: Pack All Projects
       run: dotnet pack ./PublishNugetGalery_PoC.sln --output packages --configuration Release
-      
-    - name: Set Nuget Source
-      run: dotnet nuget add source --username diegodalben --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://github.com/diegodalben/publish_nuget_gallery_poc/packages"
     
     - name: Push to Nuget Gallery
-      run: dotnet nuget push "packages/*.nupkg" --source "github" --skip-duplicate
+      run: dotnet nuget push "packages/*.nupkg" --source "github" --api-key ${{ secrets.GH_PACKAGES_API_KEY }}  --skip-duplicate

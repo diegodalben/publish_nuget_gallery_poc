@@ -21,4 +21,4 @@ jobs:
       run: dotnet pack ./PublishNugetGalery_PoC.sln --output packages --configuration Release
     
     - name: Push to Nuget Gallery
-      run: dotnet nuget push "packages/*.nupkg" --source "dotnet nuget push "packages/*.nupkg" --source "https://nuget.pkg.github.com/diegodalben/index.json" --api-key ${{ secrets.GITHUB_TOKEN }} --skip-duplicate" --api-key ${{ secrets.GH_PACKAGES_API_KEY }}  --skip-duplicate
+      run: dotnet nuget push "packages/*.nupkg" --source "https://nuget.pkg.github.com/diegodalben/index.json" --api-key ${{ secrets.GITHUB_TOKEN }} --skip-duplicate

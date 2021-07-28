@@ -1,0 +1,25 @@
+name: Pack and Publish to Nuget Gallery
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.x
+        
+    - name: Pack Project
+      run: dotnet pack ./Validate/Validate.csproj -o packages -c Release
+      
+    - name: Push to Nuget Gallery
+      run: dotnet nuget push packages/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+

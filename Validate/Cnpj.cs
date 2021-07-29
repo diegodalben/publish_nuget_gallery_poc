@@ -1,4 +1,6 @@
+using System;
 using System.Linq;
+using Extensions;
 using Validate.Abstractions;
 
 namespace Validate
@@ -43,5 +45,7 @@ namespace Validate
             digit += mod;
             return value.EndsWith(digit);
         }
+        
+        private static Guid GetValueAsGuid(string value) => value.GenerateGuid();
     }
 }

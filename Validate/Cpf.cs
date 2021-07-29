@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Extensions;
 using Validate.Abstractions;
 
 namespace Validate
@@ -27,5 +28,7 @@ namespace Validate
 
             return dv[0] == numbers[9] && dv[1] == numbers[10];
         }
+
+        private static Guid GetValueAsGuid(string value) => value.GenerateGuid();
     }
 }

@@ -7,4 +7,8 @@
         <RepositoryUrl>https://github.com/diegodalben/publish_nuget_gallery_poc</RepositoryUrl>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="diegodalben.extensions" Version="1.0.0" />
+    </ItemGroup>
+
 </Project>

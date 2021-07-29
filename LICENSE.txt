@@ -1,0 +1,6 @@
+diegodalben-Clause License
+
+Copyright (c) 2021, Diego Dalben.
+All rights reserved.
+
+This source/artifact is of limited use for testing purposes and is not recommended for use in real and/or production projects.
